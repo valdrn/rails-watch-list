@@ -1,11 +1,11 @@
 <h2><%= @list.name %></h2>
 
-  <ul>
+  <ul class="border border-dark pb-2 rounded ml-2">
     <% @list.bookmarks.each do |bookmark| %>
-       <li><%= bookmark.comment %> <%= bookmark.movie.title %> <%= bookmark.movie.overview %></li>
-       <%= link_to "🔴 Delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" }%>
+       <li ><%= bookmark.comment %> - <%= bookmark.movie.title %> <br> <%= bookmark.movie.overview %></li>
+       <%= link_to "Delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-warning"%>
     <% end %>
   </ul>
 
-<%= link_to 'Create a bookmark', new_list_bookmark_path(@list) %>
-<%= link_to "Back to all lists", lists_path %>
+<%= link_to 'Create a bookmark', new_list_bookmark_path(@list), :class => "btn btn-primary ml-2"%> <br>
+<%= link_to "Back to all lists", lists_path, :class => "btn btn-dark  mt-2 ml-2" %>
