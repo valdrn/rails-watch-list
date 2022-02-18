@@ -3,7 +3,8 @@
   <ul class="border border-dark pb-2 rounded ml-2">
     <% @list.bookmarks.each do |bookmark| %>
        <li ><%= bookmark.comment %> - <%= bookmark.movie.title %> <br> <%= bookmark.movie.overview %></li>
-       <%= link_to "Delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-warning"%>
+       <%= cl_image_tag bookmark.photo.key, height: 300, width: 400, crop: :fill %> <br>
+       <%= link_to "Delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-warning mt-2"%>
     <% end %>
   </ul>
 
